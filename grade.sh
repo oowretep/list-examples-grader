@@ -11,6 +11,11 @@ echo 'Finished cloning'
 if ! [[ -f student-submission/ListExamples.java ]]
 then
     echo "Missing student-submission/ListExamples.java"
+    echo -e "\n"
+    echo "Check to see if your ListExamples.java is in the correct directory (student-submission)"
+    echo -e "\n"
+    echo "Or check to see if submission has the right filename (ListExamples.java)"
+    echo -e "\n"
     exit
 fi
 
@@ -23,6 +28,7 @@ javac -cp $CPATH *.java
 if [[ $? -ne 0 ]] 
 then
     echo "The program failed to compile. See error above"
+    echo -e "\n"
     exit
 fi
 
@@ -38,6 +44,8 @@ else
     successes=$((tests - failures))
     echo "Grade: $successes / $tests"
 fi
+
+echo -e "\n"
 
 # Draw a picture/take notes on the directory structure that's set up after
 # getting to this point
